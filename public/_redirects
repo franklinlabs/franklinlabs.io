@@ -1,0 +1,26 @@
+# WordPress blog URL redirects (date-based → slug-based)
+/precision-tech-prairie-born/ /blog/precision-tech-prairie-born/ 301
+/what-is-the-business-what-are-we-making/ /blog/what-is-the-business-what-are-we-making/ 301
+/refocus-and-2025-reflections/ /blog/refocus-and-2025-reflections/ 301
+/founder-series-merchandise-closing/ /blog/founder-series-merchandise-closing/ 301
+/heartland-challenge-annual-livestream/ /blog/heartland-challenge-annual-livestream/ 301
+/introducing-livefusion/ /blog/introducing-livefusion/ 301
+/learning-cad-for-hardware-design/ /blog/learning-cad-for-hardware-design/ 301
+/hardware-prototype-development/ /blog/hardware-prototype-development/ 301
+/audio-system-breakthrough/ /blog/audio-system-breakthrough/ 301
+/official-company-launch/ /blog/official-company-launch/ 301
+/from-wishlist-to-workbench/ /blog/from-wishlist-to-workbench/ 301
+/progress-isnt-always-linear/ /blog/progress-isnt-always-linear/ 301
+/welcome-to-franklin-labs-llc/ /blog/welcome-to-franklin-labs-llc/ 301
+
+# WordPress admin/login paths — block
+/wp-admin /404 404
+/wp-login.php /404 404
+/wp-json/* /404 404
+/xmlrpc.php /404 404
+
+# WordPress page redirects
+/about-us /about 301
+/contact-us /contact 301
+/home / 301
+/elementor-417 / 301

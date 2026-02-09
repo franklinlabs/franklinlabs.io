@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: franklin-labs/franklinlabs.io
+  branch: main
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Company News & Updates"
+          - "Product Development"
+          - "Technology & Innovation"
+          - "Racing & Motorsports"
+          - "Behind the Scenes"
+          - "Community Spotlight"
+          - "Mapping & Projects"
+          - "Tech"
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }

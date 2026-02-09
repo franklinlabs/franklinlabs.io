@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = [...new Set(posts.map(p => p.data.category))];
+---
+
+<BaseLayout title="Blog" description="Updates from the workshop and the field — product development, technology insights, and company news from Franklin Labs.">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-primary)_0%,_transparent_50%)] opacity-10"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
+      <div class="max-w-3xl">
+        <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Blog</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
+          From the Workshop<br/>
+          <span class="text-primary">& the Field</span>
+        </h1>
+        <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">
+          Product development, technology insights, and company updates. Follow along as we build.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts Grid -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            category={post.data.category}
+            image={post.data.image}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
