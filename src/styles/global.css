@@ -15,6 +15,7 @@
   --color-border: #1E3A5F;
   --color-accent-green: #10B981;
   --color-accent-purple: #8B5CF6;
+  --color-accent: #CCFF00;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -32,4 +33,77 @@
   ::selection {
     @apply bg-primary/30 text-white;
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-navy);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-navy-lighter);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border);
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-up,
+.fade-in {
+  opacity: 0;
+}
+
+.fade-up.animate-in {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.fade-in.animate-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Hero animation (plays immediately, no IntersectionObserver needed) */
+.hero-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.hero-fade-up.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.hero-fade-up.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.hero-fade-up.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.hero-fade-up.delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* Video overlay gradient */
+.video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.7) 0%,
+    rgba(10, 22, 40, 0.85) 50%,
+    rgba(10, 22, 40, 0.95) 100%
+  );
 }

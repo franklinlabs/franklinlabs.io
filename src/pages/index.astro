@@ -11,30 +11,43 @@ const posts = (await getCollection('blog'))
 
 <BaseLayout title="Precision Tech. Prairie Born." description="Franklin Labs designs and builds electronics for real-time communication and live action — speed and reliability for signal control.">
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-primary)_0%,_transparent_50%)] opacity-10"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-accent-purple)_0%,_transparent_50%)] opacity-5"></div>
-    </div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+  <!-- Hero with Video Background -->
+  <section class="relative overflow-hidden min-h-[80vh] flex items-center">
+    <!-- Video background -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/images/logo-transparent.png"
+      class="absolute inset-0 w-full h-full object-cover"
+    >
+      <source src="/videos/hero-logo.mp4" type="video/mp4" />
+    </video>
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 video-overlay"></div>
+    <!-- Background gradient blobs -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-primary)_0%,_transparent_50%)] opacity-10"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-accent-purple)_0%,_transparent_50%)] opacity-5"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-24 sm:py-32 lg:py-40">
       <div class="max-w-3xl">
-        <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Franklin Labs LLC</p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+        <p class="hero-fade-up delay-1 text-primary font-semibold text-sm uppercase tracking-wider mb-4">Franklin Labs LLC</p>
+        <h1 class="hero-fade-up delay-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
           Precision Tech.<br/>
           <span class="text-primary">Prairie Born.</span>
         </h1>
-        <p class="text-lg sm:text-xl text-text-secondary leading-relaxed mb-8 max-w-2xl">
+        <p class="hero-fade-up delay-3 text-lg sm:text-xl text-text-secondary leading-relaxed mb-8 max-w-2xl">
           We design and build electronics for real-time communication and live action — bringing speed and reliability to signal control.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors">
+        <div class="hero-fade-up delay-4 flex flex-wrap gap-4">
+          <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-primary/20">
             Connect with Us
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
-          <a href="/blog" class="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-primary/50 text-text-primary font-semibold rounded-lg transition-colors">
+          <a href="/blog" class="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-primary/50 text-text-primary font-semibold rounded-lg transition-all hover:bg-white/5">
             Read Our Blog
           </a>
         </div>
@@ -42,18 +55,50 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="py-12 sm:py-16">
+  <!-- About Teaser -->
+  <section class="py-20 sm:py-24 bg-surface/30">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">What We Do</h2>
-        <p class="text-text-secondary max-w-2xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="fade-up rounded-2xl overflow-hidden border border-border">
+          <img src="/images/family-photo.jpeg" alt="The Franklin family" class="w-full h-auto" />
+        </div>
+        <div>
+          <p class="fade-up text-accent font-semibold text-sm uppercase tracking-wider mb-3">Who We Are</p>
+          <h2 class="fade-up delay-1 text-3xl sm:text-4xl font-bold mb-6">Midwest-Born Engineering<br/><span class="text-primary">& Innovation</span></h2>
+          <p class="fade-up delay-2 text-text-secondary leading-relaxed mb-4">
+            Franklin Labs is a Midwest-built blend of engineering grit, creative tech, and small-batch hardware innovation. Founded by a lifelong computer nerd turned project manager, we build tools and experiences that empower creators, field operators, and enthusiasts.
+          </p>
+          <p class="fade-up delay-3 text-text-secondary leading-relaxed mb-8">
+            We're parents, engineers, creatives, and code-slingers — running between children's sports events, livestream switches, and side projects that accidentally became product lines.
+          </p>
+          <a href="/about" class="fade-up delay-4 inline-flex items-center gap-2 text-primary hover:text-primary-light font-semibold transition-colors group">
+            Learn more about us
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="relative py-20 sm:py-24 overflow-hidden">
+    <!-- Background gradient blobs -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-purple/5 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <p class="fade-up text-accent font-semibold text-sm uppercase tracking-wider mb-3">Our Services</p>
+        <h2 class="fade-up delay-1 text-3xl sm:text-4xl font-bold mb-4">What We Do</h2>
+        <p class="fade-up delay-2 text-text-secondary max-w-2xl mx-auto">
           Midwest-built engineering meets creative technology — hardware innovation for real-world conditions.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-surface border border-border rounded-xl p-6 hover:border-primary/30 transition-colors">
+        <div class="fade-up bg-surface border border-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
           <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
@@ -63,7 +108,7 @@ const posts = (await getCollection('blog'))
           <p class="text-sm text-text-secondary">Custom electronics and embedded systems solutions, designed from scratch for real-world environments.</p>
         </div>
 
-        <div class="bg-surface border border-border rounded-xl p-6 hover:border-primary/30 transition-colors">
+        <div class="fade-up delay-1 bg-surface border border-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
           <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -73,7 +118,7 @@ const posts = (await getCollection('blog'))
           <p class="text-sm text-text-secondary">Streaming, recording, and communication platforms with low-latency engineering for real-time video and telemetry.</p>
         </div>
 
-        <div class="bg-surface border border-border rounded-xl p-6 hover:border-primary/30 transition-colors">
+        <div class="fade-up delay-2 bg-surface border border-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
           <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -87,31 +132,34 @@ const posts = (await getCollection('blog'))
   </section>
 
   <!-- Recent Blog Posts -->
-  <section class="py-12 sm:py-16">
+  <section class="py-20 sm:py-24 bg-surface/30">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="flex items-end justify-between mb-10">
+      <div class="flex items-end justify-between mb-12">
         <div>
-          <h2 class="text-3xl sm:text-4xl font-bold mb-2">Latest Updates</h2>
-          <p class="text-text-secondary">From the workshop and the field.</p>
+          <p class="fade-up text-accent font-semibold text-sm uppercase tracking-wider mb-3">From the Lab</p>
+          <h2 class="fade-up delay-1 text-3xl sm:text-4xl font-bold mb-2">Latest Updates</h2>
+          <p class="fade-up delay-2 text-text-secondary">From the workshop and the field.</p>
         </div>
-        <a href="/blog" class="hidden sm:inline-flex items-center gap-1 text-primary hover:text-primary-light text-sm font-medium transition-colors">
+        <a href="/blog" class="fade-up hidden sm:inline-flex items-center gap-1 text-primary hover:text-primary-light text-sm font-medium transition-colors group">
           View all posts
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <BlogCard
-            title={post.data.title}
-            date={post.data.date}
-            description={post.data.description}
-            category={post.data.category}
-            image={post.data.image}
-            slug={post.id}
-          />
+        {posts.map((post, i) => (
+          <div class:list={['fade-up', i === 1 && 'delay-1', i === 2 && 'delay-2']}>
+            <BlogCard
+              title={post.data.title}
+              date={post.data.date}
+              description={post.data.description}
+              category={post.data.category}
+              image={post.data.image}
+              slug={post.id}
+            />
+          </div>
         ))}
       </div>
 
@@ -127,15 +175,23 @@ const posts = (await getCollection('blog'))
   </section>
 
   <!-- CTA -->
-  <section class="py-12 sm:py-16 bg-surface/50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Let's Build Something</h2>
-      <p class="text-text-secondary mb-8 max-w-xl mx-auto">
-        Whether you have a project in mind or just want to learn more about what we're building, we'd love to hear from you.
-      </p>
-      <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors text-lg">
-        Get in Touch
-      </a>
+  <section class="py-20 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="fade-up relative overflow-hidden rounded-3xl bg-navy-light border border-border p-12 sm:p-16 text-center">
+        <!-- Gradient blob effects -->
+        <div class="absolute top-0 right-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-purple/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+        <div class="relative">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Let's Build Something</h2>
+          <p class="text-text-secondary mb-8 max-w-xl mx-auto text-lg">
+            Whether you have a project in mind or just want to learn more about what we're building, we'd love to hear from you.
+          </p>
+          <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all text-lg hover:shadow-lg hover:shadow-primary/20">
+            Get in Touch
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
