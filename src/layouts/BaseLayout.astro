@@ -9,7 +9,7 @@ interface Props {
   image?: string;
 }
 
-const { title, description = 'Franklin Labs - Technology solutions for modern businesses', image } = Astro.props;
+const { title, description = 'Franklin Labs - Technology solutions for modern businesses', image = '/images/og-image.png' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -32,13 +32,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} | Franklin Labs`} />
     <meta property="og:description" content={description} />
-    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <meta property="og:image" content={new URL(image, Astro.site)} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | Franklin Labs`} />
     <meta name="twitter:description" content={description} />
-    {image && <meta name="twitter:image" content={new URL(image, Astro.site)} />}
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
